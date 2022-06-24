@@ -1,0 +1,76 @@
+﻿
+@model IList<Biography>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @TempData["Success"]
+    </div>
+}
+<div style="overflow-x:auto">
+
+    <div style="margin-bottom:10px;">
+        <a href="/Admin/AttorneysBio/Create" class="btn btn-outline-success" style="width:100%">Add new slider</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Image</th>
+                <th scope="col">BioHeader</th>
+                <th scope="col">BioDescription</th>
+                <th scope="col">EducationHeader</th>
+                <th scope="col">EducationDescription</th>
+                <th scope="col">Aphorizm</th>
+                <th scope="col">AwarsHeader</th>
+                <th scope="col">AwardDescription</th>
+                <th scope="col">AwardIconsDesc</th>
+                <th scope="col">Job</th>
+                <th scope="col">Name</th>
+                <th scope="col">Comminucate</th>
+                <th scope="col">IconsComminucate</th>
+                <th scope="col">IconsComminucate2</th>
+                <th scope="col">IconsComminucate3</th>
+                <th scope="col">PractiseHeader</th>
+                <th scope="col">PrcatiseDesc</th>
+                <th>Edit/Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>
+                        <img width="200" height="150" src="~/images/attorneys/@item.Image" alt="Alternate Text" />
+                    </td>
+                    <td>@Html.Raw(item.BioHeader)</td>
+                    <td>@Html.Raw(item.BioDescription)</td>
+                    <td>@Html.Raw(item.EducationHeader)</td>
+                    <td>@Html.Raw(item.EducationDescription)</td>
+                    <td>@Html.Raw(item.Aphorizm)</td>
+                    <td>@Html.Raw(item.AwarsHeader)</td>
+                    <td>@Html.Raw(item.AwardDescription)</td>
+                    <td>@item.AwardIconsDesc</td>
+                    <td>@item.Job</td>
+                    <td>@item.Name</td>
+                    <td>@Html.Raw(item.Comminucate)</td>
+                    <td>@Html.Raw(item.IconsComminucate)</td>
+                    <td>@Html.Raw(item.IconsComminucate2)</td>
+                    <td>@Html.Raw(item.IconsComminucate3)</td>
+                    <td>@item.PractiseHeader</td>
+                    <td>@Html.Raw(item.PrcatiseDesc)</td>
+                    <td>
+                        <a href="/Admin/AttorneysBio/Edit/@item.Id"><i class="fas fa-edit"></i></a>
+                        <a href="/Admin/AttorneysBio/Delete/@item.Id" onclick="return confirm('Silmek isdediyinizden eminsinizmi?')" style="color:red"><i class="fas fa-trash-alt"></i></a>
+                        <br />
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

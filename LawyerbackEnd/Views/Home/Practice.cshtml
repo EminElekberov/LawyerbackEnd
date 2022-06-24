@@ -1,0 +1,76 @@
+﻿@model HomeVM
+
+<style>
+    .tests {
+        background-image: url(../images/top-bkgs/environmet.jpg);
+        background-size:cover;
+    }
+</style>
+<div class="page-head tests">
+    <div class="inner-desc">
+        <div class="container">
+            @foreach (var item in Model.practiceSliders)
+            {
+                <h1 class="page-title">@Html.Raw(item.Name)</h1>
+                <span class="post-subtitle page-subtitle">@Html.Raw(item.Description)</span>
+            }
+        </div>
+    </div>
+</div>
+
+<section class="section-holder">
+    <div class="container">
+        <div class="row practice-items-holder-v2">
+            @foreach (var item in Model.practiceAbouts)
+            {
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="practice-item-v2">
+
+                        <a >
+                            <div class="practice-circle">@Html.Raw(item.IconLink)</div>
+                        </a>
+                        <h5 class="practice-title-v2"><a href="practice-single-page.html">@Html.Raw(item.Header)</a></h5>
+                        <div class="practice-excerpt">@Html.Raw(item.Description)</div>
+                        @if (item.Learntext == null)
+                        {
+                            <a class="read-more" href="#">Learn More</a>
+                        }
+                        <a class="read-more" href="@item.LearnLink">@Html.Raw(item.Learntext)</a>
+
+                    </div>
+                    
+                </div>
+            }
+            </div>
+    </div>
+</section>
+
+<section class="section-holder">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 alignc">
+                @foreach (var item in Model.pageContacts)
+                {
+                    <span class="heading-subtitle">@Html.Raw(item.Header)</span>
+                    <h2 class="section-heading-title">@Html.Raw(item.Title)</h2>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model.pageContacts)
+            {
+                <div class="col-lg-4 alignc">
+
+                    <div class="icon-box-icon margin-none">@Html.Raw(item.Link)</div>
+                    <div class="icon-box-title">@Html.Raw(item.LinkDescription)</div>
+                    <p class="icon-box-description">@Html.Raw(item.Description)</p>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>

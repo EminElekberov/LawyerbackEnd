@@ -1,0 +1,32 @@
+﻿
+@model PracticeAbout
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Icon</th>
+            <th scope="col">Header</th>
+            <th scope="col">Description</th>
+            <th scope="col">Learn Text</th>
+            <th scope="col">Learn Text Link</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+            <tr>
+                <th scope="row">@Model.Id</th>
+                <td>@Html.Raw(Model.IconLink)</td>
+                <td>@Html.Raw(Model.Header)</td>
+                <td>@Html.Raw(Model.Description)</td>
+                <td>@Html.Raw(Model.Learntext)</td>
+                <td>@Html.Raw(Model.LearnLink)</td>
+
+               
+            </tr>
+
+        
+    </tbody>
+</table>

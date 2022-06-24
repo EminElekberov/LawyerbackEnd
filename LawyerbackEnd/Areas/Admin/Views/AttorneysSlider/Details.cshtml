@@ -1,0 +1,23 @@
+﻿
+@model AttorneysSlider
+
+
+
+<table class="table table-bordered">
+    <thead class="bg-register-image">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+            <tr>
+                <th scope="row">@Model.Id</th>
+                <td>@Html.Raw(Model.Name)</td>
+            </tr>
+
+        
+    </tbody>
+</table>

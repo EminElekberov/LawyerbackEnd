@@ -1,0 +1,97 @@
+﻿@model Teams
+
+@section styles{ @*bunu ona gore yazdiqki burda yazilan css shared papkasinda loayout.cshtml icerisinde render ede bilek*@
+<style>
+    label {
+        color: red;
+    }
+</style>
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Image</label>
+        <input type="file" class="form-control" asp-for="Photo">
+        <span asp-validation-for="Photo" style="color:red"></span>
+    </div>
+    <div class="mb-3">
+        <label>Job</label>
+        <textarea asp-for="Job" class="form-control"></textarea>
+
+        <span asp-validation-for="Job" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Name</label>
+        <textarea asp-for="Name" class="form-control"></textarea>
+
+        <span asp-validation-for="Name" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>SocialNetworkLink</label>
+        <textarea asp-for="SocialNetworkLink" class="form-control"></textarea>
+        <span asp-validation-for="SocialNetworkLink" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>SocialNetworkLinkTwo</label>
+        <textarea asp-for="SocialNetworkLink2" class="form-control"></textarea>
+        <span asp-validation-for="SocialNetworkLink2" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>SocialNetworkLinkThree</label>
+        <textarea asp-for="SocialNetworkLink3" class="form-control"></textarea>
+        <span asp-validation-for="SocialNetworkLink3" style="color:red"></span>
+    </div>
+    <div class="mb-3">
+        <label>SocialNetworkLinkfour</label>
+        <textarea asp-for="SocialNetworkLink4" class="form-control"></textarea>
+        <span asp-validation-for="SocialNetworkLink4" style="color:red"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+@section scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Job')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}
+
+@section scripts1{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Description')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}
+
+
+@section scriptsNumOne{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Name')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}

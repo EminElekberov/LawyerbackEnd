@@ -1,0 +1,69 @@
+﻿@model AttorneyWork
+@{
+    ViewData["Title"] = "Edit";
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Header</label>
+        <textarea asp-for="Header" id="Header" class="form-control"></textarea>
+        <span asp-validation-for="Header" style="color:red"></span>
+    </div>
+    <div class="mb-3">
+        <label>Title</label>
+        <textarea asp-for="Title" id="Title" class="form-control"></textarea>
+        <span asp-validation-for="Title" style="color:red"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea asp-for="Description" id="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" style="color:red"></span>
+    </div>
+    <div class="mb-3">
+        <label>Button Text</label>
+        <input type="text" class="form-control" asp-for="Buttontext">
+        <span asp-validation-for="Buttontext" style="color:red"></span>
+    </div>
+    <div class="mb-3">
+        <label>Button Link</label>
+        <input type="text" class="form-control" asp-for="ButtonLink">
+        <span asp-validation-for="ButtonLink" style="color:red"></span>
+    </div>
+    <input type="submit" class="btn btn-danger btn-block" value="Update" />
+</form>
+
+
+
+@section scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Header')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}
+
+@section scripts1{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Title')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}
+
+
+@section scriptsNumOne{
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/32.0.0/ckeditor.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#Description')).catch(error => {
+            console.error(error);
+        });
+    </script>
+}

@@ -1,0 +1,67 @@
+﻿@model HomeVM
+
+<style>
+    .tests {
+        background-image: url(../images/contact/contactBg.jpg);
+        background-size: cover;
+    }
+</style>
+<div class="page-head tests">
+    <div class="inner-desc">
+        <div class="container">
+            <h1 class="page-title">Contact</h1>
+            <span class="post-subtitle page-subtitle">Call Us Today 1-800-000-111</span>
+        </div>
+    </div>
+</div>
+
+
+<section class="section-holder">
+    <div class="container">
+        <div class="row align-items-center">
+            @foreach (var item in Model.allContacts)
+            {
+                <div class="col-lg-5">
+                    <h3 class="margin-b16">@Html.Raw(item.AddressHeader)</h3>
+                    <p>@Html.Raw(item.Address)</p>
+                    <hr />
+                    <h3 class="margin-b16">@Html.Raw(item.PhoneHeader)</h3>
+                    <p>@Html.Raw(item.Phone)</p>
+                    <hr />
+                    <h3 class="margin-b16">@Html.Raw(item.OfficeHeader)</h3>
+                    <p>@Html.Raw(item.Hours)</p>
+                </div>
+            }
+        <div class="col-lg-7">
+            @foreach (var item in Model.allContacts)
+            {
+                <h2 class="section-heading-title margin-b16">@Html.Raw(item.ContactHeader)</h2>
+                <p>@Html.Raw(item.ContactHeaderDescription)</p>
+            }
+
+                <div id="contact-form-holder">
+
+                    <form method="post" enctype="multipart/form-data">
+
+                        <div class="row">
+
+                            <div class="col-lg-4 margin-b32"><input type="text" asp-for="@Model.contact.Name"  class="form-control" placeholder="Name"  required/></div>
+                            <div class="col-lg-4 margin-b32"><input type="text" asp-for="@Model.contact.Email"  class="form-control" placeholder="Email" required/> </div>
+                            <div class="col-lg-4 margin-b32"><input type="text" asp-for="@Model.contact.Subject"  class="form-control" placeholder="Subject" required/> </div>
+                        </div>
+                        <div class="margin-b32"><textarea asp-for="@Model.contact.Message" id="msg-contact" rows="5" placeholder="Message" required></textarea></div>
+                        <p class="antispam">Leave this empty: <input type="text" name="url" /></p>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </form>
+                    
+                </div>
+                <!-- contact-form-holder-->
+                <div id="output-contact"></div>
+            </div>
+                <!-- /col-lg-7-->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
